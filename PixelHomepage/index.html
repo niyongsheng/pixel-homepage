@@ -1,0 +1,198 @@
+<!--
+    Created by IntelliJ IDEA.
+    User: niyongsheng
+    Date: 2023/10/18
+    Time: 11:42
+ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/nes.css">
+    <link rel="shortcut icon" type="image/ico" href="./images/favicon_16x16.ico">
+    <title>@niyongsheng</title>
+</head>
+<style type="text/css">
+    @font-face {
+        font-family: 'ZpixFont';
+        src: url('./font/zpix.ttf') format('truetype');
+    }
+
+    body {
+        font-family: 'ZpixFont', sans-serif;
+    }
+
+    .bigImg {
+        position: relative;
+        height: 100%;
+    }
+
+    .opacityBottom {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        top: 0;
+        left: 0;
+    }
+
+    .margin-nc {
+        margin: 0 10px;
+    }
+
+    .small-text {
+        font-size: 7px;
+        font-weight: 1000;
+    }
+</style>
+
+<body class="nes-container with-title">
+    <h3 class="title">NYS</h3>
+
+    <a href="https://github.com/niyongsheng/pixel-homepage" target="_blank">
+        <div id="cursor" class="item">
+            <p class="nes-balloon from-left nes-pointer">
+                空谈误国，实干兴邦.
+                <br>
+                Talk is cheap. Show me the code.
+            </p>
+        </div>
+        <i class="nes-mario"></i>
+    </a>
+
+    <section class="">
+        <h1><a href="https://niyongsheng.github.io">@Nico</a></h1>
+        <p></p>
+    </section>
+
+    <section>
+        <button type="button" class="nes-btn is-primary"
+            onclick="document.getElementById('dialog-default').showModal();">
+            Silver Bullet
+        </button>
+        <dialog class="nes-dialog" id="dialog-default">
+            <form method="dialog">
+                <p class="title">Life no silver bullet</p>
+                <p class="nes-text is-small is-success small-text">
+                    while (1) {<br>
+                    &emsp;printf("活下去，像牲口一样活下去。\n");<br>
+                    &emsp;printf("Live. Live like animal.\n");<br>
+                    &emsp;printf("살아라, 가축처럼 살아라.\n");<br>
+                    &emsp;printf("生きろ、家畜のように生きろ、です。");<br>
+                    }
+                </p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancel</button>
+                    <button class="nes-btn is-primary">Confirm</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+
+    <br>
+
+    <div>
+        <section class="">
+            <h2 id="support"><a href="#support">#</a>Coffee QR</h2>
+            <p></p>
+        </section>
+        <div id="pay_div"></div>
+        <div style="text-align: center;">(_*)</div>
+    </div>
+
+    <section class="">
+        <h2 id="contribution"><a href="#contribution">#</a>Contribution</h2>
+        <p></p>
+    </section>
+
+    <p class="nes-text is-dark" style="font-size: 16px; font-weight: 800;">
+        1. ios simple componentized solution framework. <br>
+        2. ios project demo based on NYSKit. <br>
+        3. Garbage classification project based on ResNet. <br>
+        4. Luck draw Vue web project. <br>
+        5. Examples of packing algorithm and scheduling loading.
+    </p>
+
+    <section class="">
+        <h2 id="about"><a href="#about">#</a>About</h2>
+        <p></p>
+    </section>
+
+    <h4 class="nes-text">
+        <a href="mailto:niyongsheng@Outlook.com" target="_blank">
+            <i class="nes-icon github is-small"></i><span class="margin-nc nes-text is-error">Github:
+                @niyongsheng</span>
+        </a>
+    </h4>
+    <h4 class="nes-text">
+        <a href="https://github.com/niyongsheng" target="_blank">
+            <i class="nes-icon gmail is-small"></i><span class="margin-nc nes-text is-error">Mail:
+                niyongsheng@outlook.com</span>
+        </a>
+    </h4>
+
+    <p class="nes-text is-disabled" style="text-align: center">-- end --</p>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
+    <script type="text/javascript">
+        var ua = navigator.userAgent.toLowerCase();
+        paydiv = document.getElementById("pay_div");
+        var pu = "https://qr.alipay.com/fkx16011wvcyomkryssjgba";
+        SQR(pu, paydiv);
+
+        function SQR(u, d) {
+            d.setAttribute("style", "text-align:center;vertical-align:middle;");
+            a = document.createElement("a");
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                a.setAttribute("href", 'javascript:click()');
+            } else {
+                a.setAttribute("href", u);
+            }
+            var qc = new QRCode(a, {
+                text: pu,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            d.append(a);
+            console.log(qc);
+            arri = d.getElementsByTagName("img");
+            for (var i = 0; i < arri.length; i++) {
+                arri[i].setAttribute("style", "margin:0 auto;");
+            }
+        }
+
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            click();
+        }
+
+        function click() {
+            var imgsrc = "images/brower.png";
+            console.log(imgsrc);
+            var opacityBottom = '<div class="opacityBottom" style = "display:none"><img class="bigImg" src="' + imgsrc + '"></div>';
+            $(document.body).append(opacityBottom);
+            toBigImg();
+        }
+
+        function toBigImg() {
+            $(".opacityBottom").addClass("opacityBottom");
+            $(".opacityBottom").show();
+            $("html,body").addClass("none-scroll");
+            $(".bigImg").addClass("bigImg");
+            $(".opacityBottom").click(function () {
+                $("html,body").removeClass("none-scroll");
+                $(".opacityBottom").remove();
+            });
+        }
+
+    </script>
+</body>
+
+</html>
